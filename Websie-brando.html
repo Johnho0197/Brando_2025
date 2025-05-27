@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: Phân Tích Dịch Vụ Toplist Brando</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Visualization & Content Choices:
+        - Market Comparison (Bảng 1): Goal: Compare. Viz: Chart.js Bar Chart (Cost/Longevity Scores) + HTML Table (Details). Justification: Quick visual for key metrics, table for depth. Library: Chart.js. NO SVG.
+        - Key Benefits (Bảng 2): Goal: Inform. Viz: HTML Cards/Table. Justification: Clear, scannable benefits. Method: HTML/Tailwind. NO SVG.
+        - Customer Segments (Bảng 3): Goal: Organize/Inform. Viz: HTML Cards for each segment. Justification: Structured display of segment-specific info. Method: HTML/Tailwind. NO SVG.
+        - Sales Funnel (Bảng 4): Goal: Organize/Change. Viz: HTML/CSS multi-stage diagram. Justification: Visualizes process flow. Method: HTML/Tailwind. NO SVG.
+        - Partner/Client Network: Goal: Inform. Viz: Large HTML text (Big Numbers). Justification: Impactful display of scale. Method: HTML/Tailwind. NO SVG.
+        - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FA; color: #1C3F60; }
+        .section-title { color: #0056b3; }
+        .card { background-color: #FFFFFF; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); margin-bottom: 1.5rem; padding: 1.5rem; }
+        .chart-container { position: relative; width: 100%; max-width: 700px; margin-left: auto; margin-right: auto; height: 380px; max-height: 450px; padding: 1rem; background-color: #FFFFFF; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); }
+        @media (min-width: 768px) { .chart-container { height: 420px; } }
+        .big-number { font-size: 3rem; font-weight: bold; color: #007BFF; }
+        .highlight-accent { color: #FFC107; }
+        .table-responsive { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .flowchart-stage { border: 2px solid #61A5C2; background-color: #FFFFFF; }
+        .flowchart-arrow { color: #007BFF; font-size: 2rem; line-height: 1; }
+        .nav-sticky { position: sticky; top: 0; background-color: rgba(255, 255, 255, 0.95); z-index: 50; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .nav-link { transition: color 0.3s ease; padding: 0.5rem 1rem; }
+        .nav-link.active { color: #007BFF; font-weight: bold; border-bottom: 2px solid #007BFF;}
+        .nav-link:hover { color: #0056b3; }
+    </style>
+</head>
+<body x-data="{ activeSection: 'gioi-thieu-infographic' }">
+
+    <header class="nav-sticky py-3 mb-8">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center items-center">
+            <a href="#gioi-thieu-infographic" @click="activeSection = 'gioi-thieu-infographic'" :class="{'active': activeSection === 'gioi-thieu-infographic'}" class="nav-link text-sm font-medium text-gray-700">Giới Thiệu</a>
+            <a href="#tong-quan-thi-truong" @click="activeSection = 'tong-quan-thi-truong'" :class="{'active': activeSection === 'tong-quan-thi-truong'}" class="nav-link text-sm font-medium text-gray-700">Thị Trường</a>
+            <a href="#loi-the-canh-tranh" @click="activeSection = 'loi-the-canh-tranh'" :class="{'active': activeSection === 'loi-the-canh-tranh'}" class="nav-link text-sm font-medium text-gray-700">Lợi Thế</a>
+            <a href="#khach-hang-muc-tieu" @click="activeSection = 'khach-hang-muc-tieu'" :class="{'active': activeSection === 'khach-hang-muc-tieu'}" class="nav-link text-sm font-medium text-gray-700">Khách Hàng</a>
+            <a href="#quy-trinh-ban-hang" @click="activeSection = 'quy-trinh-ban-hang'" :class="{'active': activeSection === 'quy-trinh-ban-hang'}" class="nav-link text-sm font-medium text-gray-700">Quy Trình</a>
+            <a href="#mang-luoi-doi-tac" @click="activeSection = 'mang-luoi-doi-tac'" :class="{'active': activeSection === 'mang-luoi-doi-tac'}" class="nav-link text-sm font-medium text-gray-700">Đối Tác</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        <section id="gioi-thieu-infographic" class="py-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold section-title mb-4">Infographic Dịch Vụ Toplist Brando</h1>
+                <p class="text-xl text-slate-700">Phân tích xu hướng thị trường và lợi thế cạnh tranh của giải pháp PR hiệu quả.</p>
+            </div>
+            <div class="card">
+                <p class="text-lg text-slate-600 mb-6">Dịch vụ Toplist của Brando là một giải pháp tiếp thị PR độc đáo, giúp doanh nghiệp xây dựng uy tín và thương hiệu thông qua các bài viết đánh giá khách quan, được xếp hạng cao trên Google. Với chi phí hợp lý và hiệu quả bền vững, Toplist đang trở thành lựa chọn chiến lược cho nhiều doanh nghiệp tại Việt Nam.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <p class="big-number">5000+</p>
+                        <p class="text-slate-700 font-semibold">Khách hàng toàn quốc</p>
+                    </div>
+                    <div>
+                        <p class="big-number">60%+</p>
+                        <p class="text-slate-700 font-semibold">Tỷ lệ gia hạn & mua thêm</p>
+                    </div>
+                    <div>
+                        <p class="big-number">20+</p>
+                        <p class="text-slate-700 font-semibold">Website đối tác hàng đầu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tong-quan-thi-truong" class="py-8">
+            <h2 class="text-3xl font-bold section-title text-center mb-8">Định Vị Toplist Trong Thị Trường Tiếp Thị Kỹ Thuật Số</h2>
+            <p class="text-lg text-slate-600 mb-10 text-center">Trong bối cảnh đa dạng của các kênh tiếp thị kỹ thuật số, dịch vụ Toplist của Brando nổi bật với những ưu điểm riêng về chi phí, độ bền vững và khả năng tiếp cận khách hàng có nhu cầu thực sự. Biểu đồ dưới đây so sánh điểm chi phí và độ lâu dài của Toplist với các kênh phổ biến khác, theo sau là bảng phân tích chi tiết hơn.</p>
+            <div class="card">
+                <h3 class="text-2xl font-semibold text-center text-slate-800 mb-6">So Sánh Điểm Chi Phí & Độ Lâu Dài</h3>
+                <div class="chart-container">
+                    <canvas id="marketComparisonChart"></canvas>
+                </div>
+                <p class="text-sm text-slate-500 mt-4 text-center">Ghi chú: Điểm chi phí càng thấp càng tốt. Điểm độ lâu dài càng cao càng tốt.</p>
+            </div>
+            <div class="card mt-8">
+                <h3 class="text-2xl font-semibold text-center text-slate-800 mb-6">Phân Tích Chi Tiết Các Kênh Tiếp Thị</h3>
+                <div class="table-responsive shadow rounded-lg">
+                    <table class="min-w-full bg-white">
+                        <thead class="bg-sky-700 text-white">
+                            <tr>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Tiêu chí</th>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Toplist</th>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Facebook Ads</th>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">SEO Website</th>
+                                <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Google Ads</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-slate-700" id="detailedComparisonTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="loi-the-canh-tranh" class="py-8">
+            <h2 class="text-3xl font-bold section-title text-center mb-8">Lợi Thế Cạnh Tranh Vượt Trội của Toplist Brando</h2>
+            <p class="text-lg text-slate-600 mb-10 text-center">Dịch vụ Toplist của Brando không chỉ cạnh tranh về giá mà còn mang lại hàng loạt lợi ích chiến lược, giúp doanh nghiệp xây dựng thương hiệu vững chắc và tiếp cận khách hàng hiệu quả.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="keyBenefitsContainer">
+            </div>
+        </section>
+
+        <section id="khach-hang-muc-tieu" class="py-8">
+            <h2 class="text-3xl font-bold section-title text-center mb-8">Thấu Hiểu Khách Hàng Mục Tiêu</h2>
+            <p class="text-lg text-slate-600 mb-10 text-center">Brando phân tích sâu sắc hành vi và nhu cầu của từng phân khúc khách hàng để đưa ra giải pháp Toplist phù hợp nhất, tối đa hóa lợi ích cho doanh nghiệp.</p>
+            <div class="grid md:grid-cols-2 gap-6" id="customerSegmentsContainer">
+            </div>
+        </section>
+
+        <section id="quy-trinh-ban-hang" class="py-8">
+            <h2 class="text-3xl font-bold section-title text-center mb-8">Quy Trình Bán Hàng Chuyên Nghiệp & Hiệu Quả</h2>
+            <p class="text-lg text-slate-600 mb-10 text-center">Brando áp dụng một hành trình bán hàng được chuẩn hóa, tập trung vào việc xây dựng mối quan hệ và cung cấp giá trị ở mỗi giai đoạn, từ tiếp cận ban đầu đến chốt hợp đồng.</p>
+            <div class="flex flex-col md:flex-row justify-around items-start md:items-stretch space-y-6 md:space-y-0 md:space-x-2" id="salesFunnelContainer">
+            </div>
+        </section>
+
+        <section id="mang-luoi-doi-tac" class="py-8">
+            <h2 class="text-3xl font-bold section-title text-center mb-8">Mạng Lưới Đối Tác & Thành Tựu</h2>
+             <p class="text-lg text-slate-600 mb-10 text-center">Sức mạnh của Brando còn đến từ mạng lưới đối tác uy tín và sự tin tưởng của hàng ngàn khách hàng trên toàn quốc.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="card">
+                    <p class="text-5xl font-bold highlight-accent mb-2">20+</p>
+                    <h3 class="text-xl font-semibold text-slate-800">Hệ thống Website Đối tác</h3>
+                    <p class="text-slate-600">Bao gồm Toplist.vn, Mytour.vn, Inhat.vn, Bookingcare.vn và nhiều trang uy tín khác đã lên Top Google.</p>
+                </div>
+                <div class="card">
+                    <p class="text-5xl font-bold highlight-accent mb-2">5000+</p>
+                    <h3 class="text-xl font-semibold text-slate-800">Khách hàng Doanh nghiệp</h3>
+                    <p class="text-slate-600">Đã tin tưởng và sử dụng dịch vụ Toplist của Brando trên khắp cả nước.</p>
+                </div>
+                <div class="card">
+                    <p class="text-5xl font-bold highlight-accent mb-2">60%+</p>
+                    <h3 class="text-xl font-semibold text-slate-800">Tỷ lệ Gia hạn</h3>
+                    <p class="text-slate-600">Minh chứng cho hiệu quả và sự hài lòng mà dịch vụ Toplist mang lại.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ket-luan-infographic" class="py-8">
+            <div class="card text-center">
+                <h2 class="text-3xl font-bold section-title mb-6">Kết Luận: Toplist - Lựa Chọn Thông Minh Cho Thương Hiệu</h2>
+                <p class="text-lg text-slate-700 mb-4">Dịch vụ Toplist của Brando là một giải pháp tiếp thị PR toàn diện, kết hợp hiệu quả chi phí, khả năng hiển thị bền vững và độ tin cậy cao. Với quy trình chuyên nghiệp và sự thấu hiểu thị trường, Brando cam kết đồng hành cùng doanh nghiệp xây dựng thương hiệu mạnh mẽ và tiếp cận khách hàng tiềm năng một cách tối ưu.</p>
+                <p class="text-md text-slate-600">Thông tin dựa trên "Báo cáo Phân tích chiến lược dịch vụ tiếp thị kỹ thuật số Toplist của Brando".</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-white py-8 text-center mt-12">
+        <p>&copy; 2025 Brando Infographic. Mọi quyền được bảo lưu.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('app', () => ({
+                activeSection: 'gioi-thieu-infographic',
+            }));
+        });
+
+        const marketComparisonData = {
+            labels: ['Toplist', ['Facebook', 'Ads'], ['SEO', 'Website'], ['Google', 'Ads'], ['TikTok', 'Review'], ['SEO Maps'], 'Báo chí'],
+            datasets: [
+                {
+                    label: 'Điểm Chi Phí (Thấp hơn là tốt)',
+                    data: [1, 5, 5, 5, 4, 2, 4], // Giả định điểm 1 là thấp nhất (tốt nhất), 5 là cao nhất
+                    backgroundColor: '#61A5C2', // Lighter Blue
+                    borderColor: '#1C3F60',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Điểm Độ Lâu Dài (Cao hơn là tốt)',
+                    data: [5, 1, 5, 1, 2, 4, 4], // Giả định điểm 5 là cao nhất (tốt nhất)
+                    backgroundColor: '#007BFF', // Primary Blue
+                    borderColor: '#1C3F60',
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        const detailedComparisonData = [
+            { criterion: 'Tốc độ hiệu quả', toplist: 'Trung bình', facebook_ads: '✅ Nhanh', seo_website: '❌ Chậm', google_ads: '✅ Nhanh' },
+            { criterion: 'Tiếp cận đúng nhu cầu', toplist: '✅ Khách chủ động', facebook_ads: '❌ Khách bị động', seo_website: '✅ Khách chủ động', google_ads: '✅ Khách chủ động' },
+            { criterion: 'Độ tin cậy', toplist: '✅ Cao (Bên thứ 3)', facebook_ads: '❌ Thấp (Quảng cáo)', seo_website: '✅ Cao (Nếu tốt)', google_ads: '❌ Thấp (Quảng cáo)' }
+        ];
+
+        const keyBenefitsData = [
+            { title: "Chi Phí Tiết Kiệm", detail: "Từ 4-6 triệu/năm, bằng 1/5 so với kênh khác.", icon: "💰" },
+            { title: "Hiệu Quả Lâu Dài", detail: "Giữ vị trí Top Google nhiều tháng/năm.", icon: "⏳" },
+            { title: "Tiếp Cận Chủ Động", detail: "Khách hàng có nhu cầu tự tìm đến.", icon: "🎯" },
+            { title: "Độ Tin Cậy Cao", detail: "Đánh giá khách quan từ bên thứ 3.", icon: "🛡️" },
+            { title: "Thông Tin Doanh Nghiệp", detail: "Link web/fanpage, hotline, maps trực tiếp trong bài.", icon: "🔗" },
+            { title: "Hỗ Trợ SEO", detail: "Backlink dofollow giá trị cho website.", icon: "🚀" }
+        ];
+        
+        const customerSegmentsData = [
+            { 
+                segment: "Doanh Nghiệp Nhỏ & Mới", 
+                behavior: "Muốn tăng vị thế, tạo uy tín ban đầu với ngân sách hạn chế.", 
+                toplist_solution: "Toplist giúp gia tăng uy tín nhanh chóng, tạo độ tin cậy với chi phí thấp, hiệu quả dài hạn." 
+            },
+            { 
+                segment: "Doanh Nghiệp Lớn & Lâu Năm", 
+                behavior: "Muốn giữ vững vị thế số 1, duy trì tên tuổi, tối đa hóa hiệu quả các kênh.", 
+                toplist_solution: "Toplist khẳng định vị trí TOP đầu, duy trì hiện diện, phủ sóng tối đa và tăng hiệu quả cho các kênh khác." 
+            },
+            { 
+                segment: "DN Chưa/Đang Quảng Cáo", 
+                behavior: "Ngại chi phí, sợ không hiệu quả, hoặc muốn tối ưu quảng cáo hiện tại.", 
+                toplist_solution: "Toplist là giải pháp chi phí thấp, dễ triển khai, tăng độ tin cậy và có thể thúc đẩy hiệu quả cho các quảng cáo khác."
+            },
+            { 
+                segment: "DN Ít Khách/Cạnh Tranh Cao", 
+                behavior: "Cần thêm khách hàng, đối mặt áp lực cạnh tranh và chi phí quảng bá cao.", 
+                toplist_solution: "Toplist giúp tăng tiếp cận khách hàng mới với ngân sách thấp, tạo lợi thế trong ngành cạnh tranh."
+            }
+        ];
+
+        const salesFunnelData = [
+            { stage: "Tiếp Cận", journey: "BIẾT", purpose: "KH biết & hứng thú về Toplist.", conversion_to_next: null, target: "1000 KH", icon: "📢" },
+            { stage: "Tiềm Năng", journey: "BIẾT", purpose: "KH hiểu cơ bản & muốn tìm hiểu sâu.", conversion_to_next: "20%", target: "200 KH", icon: "💡" },
+            { stage: "Tư Vấn", journey: "HIỂU", purpose: "KH hiểu chi tiết về giá, triển khai, hiệu quả.", conversion_to_next: "40%", target: "80 KH", icon: "💬" },
+            { stage: "Thuyết Phục", journey: "TIN", purpose: "KH tin vào sản phẩm & giá hợp lý.", conversion_to_next: "25%", target: "20 KH", icon: "🤝" },
+            { stage: "Chốt Sales", journey: "MUA", purpose: "KH nhanh chóng ra quyết định mua.", conversion_to_next: "50%", target: "10 KH", icon: "✅" },
+            { stage: "Hợp Đồng", journey: "", purpose: "Hoàn tất thủ tục & thanh toán.", conversion_to_next: "100%", target: "10 HĐ", icon: "📄" }
+        ];
+
+        window.onload = function() {
+            const ctxMarket = document.getElementById('marketComparisonChart');
+            if (ctxMarket) {
+                new Chart(ctxMarket, {
+                    type: 'bar',
+                    data: marketComparisonData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { 
+                                beginAtZero: true, 
+                                ticks: { 
+                                    stepSize: 1,
+                                    color: '#1C3F60' 
+                                }, 
+                                grid: { color: 'rgba(0,0,0,0.05)' } 
+                            },
+                            x: { ticks: { color: '#1C3F60' }, grid: { display: false } }
+                        },
+                        plugins: {
+                            legend: { labels: { color: '#1C3F60' } },
+                            tooltip: {
+                                callbacks: {
+                                    title: function(tooltipItems) {
+                                        const item = tooltipItems[0];
+                                        let label = item.chart.data.labels[item.dataIndex];
+                                        return Array.isArray(label) ? label.join(' ') : label;
+                                    },
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) { label += ': '; }
+                                        if (context.parsed.y !== null) {
+                                            label += context.parsed.y + ' điểm';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const detailedTableBody = document.getElementById('detailedComparisonTableBody');
+            if (detailedTableBody) {
+                detailedComparisonData.forEach(item => {
+                    const row = detailedTableBody.insertRow();
+                    row.insertCell().innerHTML = `<strong>${item.criterion}</strong>`;
+                    row.insertCell().innerHTML = item.toplist;
+                    row.insertCell().innerHTML = item.facebook_ads;
+                    row.insertCell().innerHTML = item.seo_website;
+                    row.insertCell().innerHTML = item.google_ads;
+                    if (detailedTableBody.rows.length % 2 !== 0) {
+                        row.classList.add('bg-sky-50');
+                    }
+                });
+            }
+
+            const benefitsContainer = document.getElementById('keyBenefitsContainer');
+            if (benefitsContainer) {
+                keyBenefitsData.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'card flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300';
+                    div.innerHTML = `
+                        <div class="text-4xl mb-3">${item.icon}</div>
+                        <h4 class="text-xl font-semibold text-sky-700 mb-2">${item.title}</h4>
+                        <p class="text-slate-600 text-sm">${item.detail}</p>
+                    `;
+                    benefitsContainer.appendChild(div);
+                });
+            }
+            
+            const customerSegmentsContainer = document.getElementById('customerSegmentsContainer');
+            if (customerSegmentsContainer) {
+                customerSegmentsData.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'card';
+                    div.innerHTML = `
+                        <h4 class="text-xl font-semibold text-sky-700 mb-2">${item.segment}</h4>
+                        <p class="text-slate-700 mb-1"><strong class="text-slate-800">Hành vi:</strong> ${item.behavior}</p>
+                        <p class="text-slate-700"><strong class="text-slate-800">Giải pháp Toplist:</strong> ${item.toplist_solution}</p>
+                    `;
+                    customerSegmentsContainer.appendChild(div);
+                });
+            }
+
+            const salesFunnelContainer = document.getElementById('salesFunnelContainer');
+            if (salesFunnelContainer) {
+                salesFunnelData.forEach((item, index) => {
+                    const stageDiv = document.createElement('div');
+                    stageDiv.className = 'flowchart-stage card p-4 flex-1 text-center min-w-[150px] md:min-w-[120px]';
+                    stageDiv.innerHTML = `
+                        <div class="text-3xl mb-2">${item.icon}</div>
+                        <h4 class="text-md font-semibold text-sky-700">${item.stage}</h4>
+                        <p class="text-xs text-slate-500 mb-1">(${item.journey})</p>
+                        <p class="text-xs text-slate-600 mb-1">${item.purpose}</p>
+                        ${item.conversion_to_next ? `<p class="text-xs font-bold text-sky-600 mt-1">CĐ: ${item.conversion_to_next}</p>` : ''}
+                        <p class="text-xs text-slate-500 mt-1">Target: ${item.target}</p>
+                    `;
+                    salesFunnelContainer.appendChild(stageDiv);
+
+                    if (index < salesFunnelData.length - 1) {
+                        const arrowDiv = document.createElement('div');
+                        arrowDiv.className = 'flowchart-arrow flex items-center justify-center self-center mx-1 md:mx-0 md:my-2 transform md:rotate-0 rotate-90';
+                        arrowDiv.innerHTML = `<span>➔</span>`;
+                        salesFunnelContainer.appendChild(arrowDiv);
+                    }
+                });
+            }
+            
+            // Scrollspy for navigation
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('nav a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= (sectionTop - sectionHeight / 3 - 70)) { // 70px for header height
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                if (current && alpineInstance) {
+                     alpineInstance.activeSection = current;
+                }
+            });
+            
+            let alpineInstance = null;
+            document.addEventListener('alpine:initialized', () => {
+                alpineInstance = Alpine.$data(document.body);
+            });
+
+        };
+    </script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+</body>
+</html>
